@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Reporte General{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Reporte General</h2>
+
+<!-- Alumnos por carrera -->
+<div class="card mb-4 shadow">
+  <div class="card-body">
+    <h3 class="card-title">Alumnos por carrera</h3>
+    {% if conteo_carreras %}
+      <table class="table table-sm table-striped table-bordered mt-3">
+        <thead class="table-light">
+          <tr>
+            <th>Carrera Técnica</th>
+            <th class="text-center">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for carrera, cantidad in conteo_carreras.items %}
+          <tr>
+            <td class="small">{{ carrera }}</td>
+            <td class="text-center">
+              <span class="badge bg-primary">{{ cantidad }}</span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="text-muted">No hay datos disponibles desde Google Sheets.</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Total de alumnos -->
+<div class="card mb-4 shadow">
+  <div class="card-body text-center">
+    <h3 class="card-title">Total de alumnos registrados</h3>
+    <p class="display-6">{{ total_alumnos }}</p>
+  </div>
+</div>
+
+<!-- Botón de regreso -->
+<div class="text-center">
+  <a href="{% url 'lista_alumnos' %}" class="btn btn-link">Volver a alumnos</a>
+</div>
+
+<!-- Mostrar error si ocurre -->
+{% if error %}
+  <div class="alert alert-danger mt-3">{{ error }}</div>
+{% endif %}
+{% endblock %}

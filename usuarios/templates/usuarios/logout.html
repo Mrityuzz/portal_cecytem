@@ -1,0 +1,15 @@
+{% extends "base_auth.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 text-center">
+    <div class="card p-4 shadow">
+      <h2 class="mb-3">Has cerrado sesión</h2>
+      <p class="text-muted">Tu sesión se ha cerrado correctamente.</p>
+      <a href="{% url 'login' %}" class="btn btn-primary mt-3">Volver a iniciar sesión</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

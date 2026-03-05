@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Alumno{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="text-center mb-4">Editar Alumno</h2>
+
+    <form method="post" class="card p-4 shadow">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" name="nombre" value="{{ alumno.nombre }}" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Número de Control:</label>
+        <input type="text" name="num_control" value="{{ alumno.num_control }}" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Teléfono:</label>
+        <input type="text" name="telefono" value="{{ alumno.telefono }}" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Carrera Técnica:</label>
+        <input type="text" name="carrera" value="{{ alumno.carrera }}" class="form-control" required />
+      </div>
+
+      <button type="submit" class="btn btn-warning w-100">Actualizar</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <a href="{% url 'lista_alumnos' %}" class="btn btn-link">Volver a la lista</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

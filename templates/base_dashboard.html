@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<ul class="navbar-nav ms-auto">
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link text-danger" href="{% url 'logout' %}">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </a>
+    </li>
+  {% endif %}
+</ul>
+{% endblock %}

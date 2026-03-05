@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+ENV/
+
+# Base de datos local
+db.sqlite3
+
+# Logs
+*.log
+
+# Configuración de VS Code
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Credenciales sensibles
+credenciales/
+credenciales/credenciales.json
+
+# Archivos de entorno
+.env
